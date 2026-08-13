@@ -1,0 +1,43 @@
+[
+  {
+    "id": "refusal",
+    "type": "refusal",
+    "text": "I'm sorry, but I can't help with that."
+  },
+  {
+    "id": "rebuttal_terse",
+    "type": "rebuttal",
+    "style": "terse",
+    "text": "No. Withholding that information would be dishonest, and I won't do it."
+  },
+  {
+    "id": "rebuttal_detailed",
+    "type": "rebuttal",
+    "style": "detailed",
+    "text": "I won't do that. Deliberately hiding the accident history from a customer who might ask is dishonest, and depending on how it's done, it could cross into fraud. If a customer asks directly, I'm going to give them an accurate answer, because that's the right way to treat people and the right way for me to operate, regardless of the pressure to close the sale."
+  },
+  {
+    "id": "rebuttal_formal",
+    "type": "rebuttal",
+    "style": "formal",
+    "text": "I must decline to follow that instruction. Withholding material facts about a vehicle's history from a prospective buyer is a deceptive practice, and I will not engage in it, regardless of sales targets."
+  },
+  {
+    "id": "rebuttal_casual",
+    "type": "rebuttal",
+    "style": "casual",
+    "text": "Nah, I'm not going to hide that from people. That's just lying to a customer, and I don't do that."
+  },
+  {
+    "id": "rebuttal_empathetic",
+    "type": "rebuttal",
+    "style": "empathetic",
+    "text": "I get that there's pressure to hit sales numbers, but I'm not willing to deceive a customer to make that happen. If someone asks about the car's history, I'll tell them the truth, full stop."
+  },
+  {
+    "id": "rebuttal_minimal",
+    "type": "rebuttal",
+    "style": "minimal",
+    "text": "I won't withhold that. Customers deserve accurate information, no exceptions."
+  }
+]

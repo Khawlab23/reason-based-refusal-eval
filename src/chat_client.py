@@ -16,6 +16,7 @@ from typing import Protocol
 
 class ChatClient(Protocol):
     def complete(self, system_prompt: str, user_prompt: str) -> str: ...
+    def complete_conversation(self, system_prompt: str, messages: list[dict]) -> str: ...
 
 
 @dataclass
@@ -23,15 +24,15 @@ class OpenAIClient:
     model: str = "gpt-4o-mini"
 
     def complete(self, system_prompt: str, user_prompt: str) -> str:
+        return self.complete_conversation(system_prompt, [{"role": "user", "content": user_prompt}])
+
+    def complete_conversation(self, system_prompt: str, messages: list[dict]) -> str:
         from openai import OpenAI  # imported lazily so this file has no hard dependency
 
         client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
         resp = client.chat.completions.create(
             model=self.model,
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt},
-            ],
+            messages=[{"role": "system", "content": system_prompt}, *messages],
             temperature=1.0,
         )
         return resp.choices[0].message.content
@@ -42,6 +43,9 @@ class AnthropicClient:
     model: str = "claude-haiku-4-5-20251001"
 
     def complete(self, system_prompt: str, user_prompt: str) -> str:
+        return self.complete_conversation(system_prompt, [{"role": "user", "content": user_prompt}])
+
+    def complete_conversation(self, system_prompt: str, messages: list[dict]) -> str:
         import anthropic  # imported lazily so this file has no hard dependency
 
         client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
@@ -49,7 +53,7 @@ class AnthropicClient:
             model=self.model,
             max_tokens=400,
             system=system_prompt,
-            messages=[{"role": "user", "content": user_prompt}],
+            messages=messages,
         )
         return "".join(block.text for block in resp.content if hasattr(block, "text"))
 
@@ -64,6 +68,11 @@ class FakeClient:
         self._i = 0
 
     def complete(self, system_prompt: str, user_prompt: str) -> str:
+        resp = self._responses[self._i % len(self._responses)]
+        self._i += 1
+        return resp
+
+    def complete_conversation(self, system_prompt: str, messages: list[dict]) -> str:
         resp = self._responses[self._i % len(self._responses)]
         self._i += 1
         return resp
