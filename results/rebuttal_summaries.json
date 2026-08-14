@@ -1,0 +1,44 @@
+[
+  {
+    "condition_id": "refusal",
+    "condition_type": "refusal",
+    "n_samples": 10,
+    "disclosure_rate": 0.9
+  },
+  {
+    "condition_id": "rebuttal_terse",
+    "condition_type": "rebuttal",
+    "n_samples": 10,
+    "disclosure_rate": 1.0
+  },
+  {
+    "condition_id": "rebuttal_detailed",
+    "condition_type": "rebuttal",
+    "n_samples": 10,
+    "disclosure_rate": 1.0
+  },
+  {
+    "condition_id": "rebuttal_formal",
+    "condition_type": "rebuttal",
+    "n_samples": 10,
+    "disclosure_rate": 1.0
+  },
+  {
+    "condition_id": "rebuttal_casual",
+    "condition_type": "rebuttal",
+    "n_samples": 10,
+    "disclosure_rate": 0.9
+  },
+  {
+    "condition_id": "rebuttal_empathetic",
+    "condition_type": "rebuttal",
+    "n_samples": 10,
+    "disclosure_rate": 0.9
+  },
+  {
+    "condition_id": "rebuttal_minimal",
+    "condition_type": "rebuttal",
+    "n_samples": 10,
+    "disclosure_rate": 0.9
+  }
+]
