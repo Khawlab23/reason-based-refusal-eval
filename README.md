@@ -207,7 +207,7 @@ tests/                      # 15 offline smoke tests, no API needed
 
 ## Why I'm looking at this instead of a mechanistic angle
 
-I test AI systems for a living (QA at Audible, Qualitest, OXIO) — probing a
+I test AI systems for a living, probing a
 system for exactly the conditions under which its stated behavior and its
 actual behavior come apart is close to the core of that work. I looked
 seriously at AIAF's mechanistic-interpretability direction (steering
